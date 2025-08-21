@@ -1,0 +1,76 @@
+run:
+  timeout: 5m
+  go: "1.23"
+
+linters:
+  enable:
+    - gofmt
+    - govet
+    - errcheck
+    - staticcheck
+    - gosec
+    - revive
+    - gocyclo
+    - misspell
+    - unused
+    - gosimple
+    - bodyclose
+    - goconst
+    - unparam
+    - ineffassign
+    - unconvert
+    - goimports
+    - gocritic
+    - gofumpt
+    - prealloc
+    - exportloopref
+    - gomodguard
+  disable:
+    - typecheck
+
+output:
+  format: colored-line-number
+
+linters-settings:
+  gocyclo:
+    min-complexity: 15
+  revive:
+    rules:
+      - name: exported
+        disabled: false
+        arguments:
+          - "disableStutteringCheck"
+  errcheck:
+    check-type-assertions: true
+  govet:
+    check-shadowing: true
+  gosec:
+    excludes:
+      - G104  # Exclude error check warning for defer logger.Sync()
+  goconst:
+    min-len: 3
+    min-occurrences: 3
+  gocritic:
+    enabled-tags:
+      - diagnostic
+      - experimental
+      - opinionated
+      - performance
+      - style
+  gofumpt:
+    extra-rules: true
+  gomodguard:
+    blocked:
+      modules: []
+      versions: []
+
+issues:
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - gosec
+        - dupl
+    - path: cmd/lambda/main.go
+      linters:
+        - errcheck
+      text: "Error return value of `logger.Sync` is not checked"

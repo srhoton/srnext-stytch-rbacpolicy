@@ -1,0 +1,29 @@
+# Example Terraform variables file
+# Copy to terraform.tfvars and customize as needed
+
+# AWS Configuration
+aws_region  = "us-west-2"
+environment = "sandbox"
+
+# ALB Configuration
+alb_arn = "arn:aws:elasticloadbalancing:us-west-2:345594586248:loadbalancer/app/external-private-alb/720e2b5474d3d602"
+
+# DNS Configuration
+domain_name = "srnext-stytch-rbac-policy.sb.int.fullbayapi.com"
+base_domain = "sb.int.fullbayapi.com"
+
+# Stytch Credentials
+stytch_credentials_secret_arn = "arn:aws:secretsmanager:us-west-2:345594586248:secret:srnext/stytchCredentials-BpFPtL"
+
+# Lambda Configuration
+lambda_memory_size = 512
+lambda_timeout     = 30
+
+# CloudWatch Configuration
+cloudwatch_logs_retention_days = 7
+
+# Additional Tags
+tags = {
+  CostCenter = "Engineering"
+  Team       = "Platform"
+}
