@@ -1,0 +1,40 @@
+Session Prompts:
+
+1. "In the lambda directory, we want to create a Go 1.24 based AWS Lambda using the AWS Go SDK v2 on provided.al2023..."
+   - Created Go Lambda for Stytch RBAC policy CRUD operations with ARM64 architecture
+
+2. "For 1, 1.24 is available. Look at https://go.dev/doc/devel/release..."
+   - Confirmed Go 1.24 availability and proceeded with implementation
+
+3. "Great. Now the directory called 'terraform', build the terraform we would need to build and deploy the lambda..."
+   - Created complete Terraform infrastructure for Lambda deployment
+
+4. "For 1, Sorry. That was a typo. There is not dynamo table. Disregard..."
+   - Clarified no DynamoDB needed, path pattern /rbacpolicy/*, health check /health
+
+5. "ok, don't use a makefile."
+   - Removed Makefile from Terraform directory
+
+6. "ok. please plan and deploy the terraform. Troubleshoot any issues."
+   - Deployed infrastructure with terraform apply, fixed various issues
+
+7. "Ok. Now, check the endpoint to make sure that all CRUD operations are successful"
+   - Tested all CRUD operations
+
+8. "That's not correct. The project_id in the secret, project-test-478debed... is a test project..."
+   - Clarified test project domain
+
+9. "That is 100% wrong. All test environments match to a prod id'd workspace..."
+   - Corrected understanding about workspace IDs
+
+10. "Why are you trying to use an API url? The library examples do not use one."
+    - Simplified client initialization to use defaults
+
+11. "The is no RBAC policy is in the API. That's exactly *why* you need the stytch-management-go module..."
+    - Confirmed management.stytch.com endpoint usage
+
+12. "Ok, I figured it out. You need a separate workspace_key and secret to access to management api..."
+    - Updated to use correct Management API credentials
+
+13. "ok. Please commit your work, add prompts in this session to the commit via git notes, push it, and using your github mcp integration, create a PR."
+    - Current task
